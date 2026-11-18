@@ -1,0 +1,247 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+:root {
+  --bg-app: #080a0f;
+  --bg-sidebar: #0b0e17;
+  --bg-card: #0f1422;
+  --bg-card-hover: #141b2d;
+  --bg-elevated: #182035;
+  --bg-surface: rgba(15, 20, 34, 0.6);
+  
+  --border-subtle: rgba(255, 255, 255, 0.06);
+  --border-muted: rgba(255, 255, 255, 0.1);
+  --border-highlight: rgba(56, 189, 248, 0.35);
+  
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --text-dim: #64748b;
+  
+  --accent-primary: #0ea5e9;
+  --accent-cyan: #06b6d4;
+  --accent-indigo: #6366f1;
+  --accent-emerald: #10b981;
+  --accent-rose: #f43f5e;
+  --accent-amber: #f59e0b;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-app);
+  color: var(--text-main);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  min-height: 100vh;
+  line-height: 1.5;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-app);
+}
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #334155;
+}
+
+.mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Layout Grid */
+.soc-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.soc-sidebar {
+  width: 250px;
+  background: var(--bg-sidebar);
+  border-right: 1px solid var(--border-subtle);
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  z-index: 50;
+}
+
+.soc-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.soc-topbar {
+  height: 64px;
+  background: rgba(11, 14, 23, 0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.75rem;
+  position: sticky;
+  top: 0;
+  z-index: 40;
+}
+
+.soc-content {
+  padding: 1.75rem;
+  flex: 1;
+}
+
+/* Refined Cards */
+.soc-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  padding: 1.25rem;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.soc-card:hover {
+  border-color: var(--border-muted);
+}
+
+/* Tactical Status Badges */
+.sev-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.2rem 0.55rem;
+  border-radius: 6px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.sev-pill-critical {
+  background: rgba(244, 63, 94, 0.12);
+  color: #fda4af;
+  border: 1px solid rgba(244, 63, 94, 0.3);
+}
+
+.sev-pill-high {
+  background: rgba(249, 115, 22, 0.12);
+  color: #fdba74;
+  border: 1px solid rgba(249, 115, 22, 0.3);
+}
+
+.sev-pill-medium {
+  background: rgba(245, 158, 11, 0.12);
+  color: #fde047;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.sev-pill-low {
+  background: rgba(14, 165, 233, 0.12);
+  color: #7dd3fc;
+  border: 1px solid rgba(14, 165, 233, 0.3);
+}
+
+.sev-pill-info {
+  background: rgba(100, 116, 139, 0.15);
+  color: #cbd5e1;
+  border: 1px solid rgba(100, 116, 139, 0.3);
+}
+
+/* Buttons */
+.soc-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  padding: 0.5rem 0.95rem;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  border: 1px solid transparent;
+  user-select: none;
+}
+
+.soc-btn-primary {
+  background: #0ea5e9;
+  color: #ffffff;
+  box-shadow: 0 0 16px rgba(14, 165, 233, 0.35);
+}
+
+.soc-btn-primary:hover:not(:disabled) {
+  background: #0284c7;
+  box-shadow: 0 0 24px rgba(14, 165, 233, 0.55);
+}
+
+.soc-btn-secondary {
+  background: rgba(255, 255, 255, 0.04);
+  color: #e2e8f0;
+  border: 1px solid var(--border-subtle);
+}
+
+.soc-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--border-muted);
+}
+
+.soc-btn-danger {
+  background: rgba(244, 63, 94, 0.15);
+  color: #fda4af;
+  border: 1px solid rgba(244, 63, 94, 0.3);
+}
+
+/* Triage Split View */
+.triage-grid {
+  display: grid;
+  grid-template-columns: 1fr 480px;
+  gap: 1.25rem;
+}
+
+@media (max-width: 1200px) {
+  .triage-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Pulse radar ring */
+@keyframes radarPing {
+  0% { transform: scale(0.95); opacity: 0.8; }
+  50% { transform: scale(1.3); opacity: 0; }
+  100% { transform: scale(0.95); opacity: 0; }
+}
+
+.radar-dot {
+  position: relative;
+  width: 8px;
+  height: 8px;
+  background: #10b981;
+  border-radius: 50%;
+}
+
+.radar-dot::after {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  width: 16px;
+  height: 16px;
+  border: 2px solid #10b981;
+  border-radius: 50%;
+  animation: radarPing 2s infinite ease-out;
+}

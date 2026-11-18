@@ -1,0 +1,11 @@
+{
+  "name": "cloudshield-platform",
+  "version": "1.0.0",
+  "description": "CloudShield — AWS Security and Misconfiguration Detection Platform",
+  "scripts": {
+    "dev": "npm --prefix frontend run dev",
+    "build": "npm --prefix frontend run build",
+    "preview": "python -m http.server 3000 --directory frontend/dist"
+  }
+}
+
